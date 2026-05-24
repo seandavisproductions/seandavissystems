@@ -5,20 +5,19 @@
   --dark-bg: #1a1a1a;
   --text-light: #333;
   --text-dark: #fff;
-  --nav-bg-light: rgba(255, 255, 255, 0.95); /* Light mode nav background */
-  --nav-bg-dark: rgba(25, 25, 25, 0.95); /* Dark mode nav background */
+  --nav-bg-light: rgba(255, 255, 255, 0.95);
+  --nav-bg-dark: rgba(25, 25, 25, 0.95);
+}
 
-  /* Dark Mode */
-  .dark-mode {
-    --primary-color: #bdc3c7;
-    --secondary-color: #3498db;
-    --light-bg: #1a1a1a;
-    --dark-bg: #2c3e50;
-    --text-light: #fff;
-    --text-dark: #bdc3c7;
-    --nav-bg-light: rgba(25, 25, 25, 0.95); /* Dark mode nav background */
-    --nav-bg-dark: rgba(255, 255, 255, 0.95); /* Light mode nav background */
-  }
+.dark-mode {
+  --primary-color: #bdc3c7;
+  --secondary-color: #3498db;
+  --light-bg: #1a1a1a;
+  --dark-bg: #2c3e50;
+  --text-light: #fff;
+  --text-dark: #bdc3c7;
+  --nav-bg-light: rgba(25, 25, 25, 0.95);
+  --nav-bg-dark: rgba(255, 255, 255, 0.95);
 }
 
 /* Base Styles */
@@ -33,31 +32,35 @@ body {
   font-family: "Segoe UI", sans-serif;
   font-size: 18px;
   overflow-x: hidden;
-  color: var(--text-light); /* Default text color */
+  color: var(--text-light);
   background: linear-gradient(-45deg, #f5f7fa, #c3cfe2, #f5f7fa, #c3cfe2);
   background-size: 400% 400%;
   animation: gradientBG 15s ease infinite;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 .dark-mode {
   background: linear-gradient(-45deg, #1a1a1a, #2c3e50, #1a1a1a, #2c3e50);
   background-size: 400% 400%;
-  color: var(--text-dark); /* Dark mode text color */
+  color: var(--text-dark);
 }
 
 /* Navigation */
 .nav {
   display: flex;
-  justify-content: space-between; /* Space between items */
-  align-items: center; /* Center items vertically */
+  justify-content: space-between;
+  align-items: center;
   padding: 1rem;
-  background: var(--nav-bg-light); /* Use CSS variable for background */
+  background: var(--nav-bg-light);
   width: 100%;
-  box-sizing: border-box;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000; /* Ensure it stays above other elements */
+  z-index: 1000;
 }
 
 .nav-container {
@@ -78,12 +81,6 @@ body {
   margin: 0 auto;
   padding: 0;
   white-space: nowrap;
-}
-
-.nav-menu.active {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
 }
 
 .nav a {
@@ -112,39 +109,15 @@ body {
 }
 
 @keyframes slide-in {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
+  from { width: 0; }
+  to { width: 100%; }
 }
 
 .nav-toggle {
   display: none;
 }
 
-@media (max-width: 768px) {
-  .nav-menu {
-    display: none;
-    flex-direction: column;
-  }
-
-  .nav-menu.active {
-    display: flex;
-  }
-
-  .nav-toggle {
-    display: none;
-  }
-}
-
-/* Ensure the navigation menu remains visible */
-.nav-menu.active {
-  display: flex !important;
-}
-
-/* Dark Mode Toggle */
+/* Theme Toggle */
 .theme-toggle {
   position: fixed;
   top: 20px;
@@ -158,170 +131,13 @@ body {
   z-index: 1001;
 }
 
-/* Consolidate media queries for better readability */
-@media (max-width: 768px) {
-  body {
-    font-size: 14px;
-  }
-
-  .content {
-    padding: 1rem;
-    text-align: center;
-  }
-
-  .nav ul {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .nav ul li {
-    margin: 10px 0;
-  }
-
-  .hero-content {
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center items */
-    text-align: center; /* Center text */
-  }
-
-  .profile-img {
-    width: 120px; /* Adjust image size for mobile */
-    height: 120px;
-  }
-
-  .hero-text h1 {
-    font-size: 1.8rem; /* Adjust heading size */
-  }
-
-  .hero-text h2 {
-    font-size: 1.2rem; /* Adjust subheading size */
-  }
-
-  .hero-buttons {
-    flex-direction: column; /* Stack buttons vertically */
-    gap: 1rem; /* Add spacing between buttons */
-  }
-
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .skill-card {
-    margin: 20px 0;
-  }
-
-  .contact-form {
-    flex-direction: column;
-    padding: 0.75rem;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    margin: 10px 0;
-    font-size: 0.9rem;
-  }
-
-  .contact-form button {
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-  }
+/* Section Controls */
+section {
+  padding-top: 5rem;
 }
 
-@media (max-width: 480px) {
-  .profile-img {
-    width: 100px; /* Smaller profile image */
-    height: 100px;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-  }
-
-  .nav ul {
-    gap: 1rem;
-  }
-
-  .nav a {
-    font-size: 1rem;
-    padding: 0.5rem;
-  }
-
-  .aboutMe-container {
-    max-height: 100vh; /* Adjust height for smaller screens */
-  }
-
-  .profile-img {
-    margin-bottom: 0.5rem; /* Reduce the bottom margin of the photo */
-  }
-
-  .hero-text {
-    margin-top: 0.5rem; /* Reduce the top margin of the text */
-  }
-
-  section {
-    padding-top: 6rem; /* Increase padding to ensure no overlap with the nav bar */
-  }
-}
-
-/* Animations */
-@keyframes gradientBG {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes heroExit {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes contentEntry {
-  from {
-    opacity: 0;
-    transform: translateX(100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes animate-border {
-  0% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(100%, 0);
-  }
-  50% {
-    transform: translate(100%, 100%);
-  }
-  75% {
-    transform: translate(0, 100%);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
+#about {
+  padding-top: 5rem;
 }
 
 /* Slider Layout */
@@ -329,24 +145,7 @@ body {
   display: flex;
   width: 400vw;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  margin-top: 2rem; /* Reduced the margin to make it less */
-}
-
-.aboutMe-container {
-  background: rgba(255, 255, 255, 0.9);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  padding: 2rem;
-  border-radius: 15px;
-  max-width: 80%;
-  margin: 0 auto;
-  align-items: center; /* Vertically center items */
-  display: flex;
-  flex-wrap: wrap; /* Allows wrapping */
-  justify-content: space-between; /* Aligns items */
-  gap: 2rem; /* Space between sections */
-  overflow-y: auto; /* Add vertical scroll */
-  max-height: 80vh; /* Limit the height */
+  margin-top: 2rem;
 }
 
 .slide {
@@ -356,82 +155,101 @@ body {
   align-items: center;
   justify-content: center;
   padding: 0rem;
-  margin-top: 0rem;
   flex-wrap: wrap;
   align-content: center;
 }
 
-/* Adjust the content and hero-content styles to center them vertically on the page */
+/* Hero Content Styling */
 .hero-content {
-  margin-top: 0; /* Remove the margin-top */
   display: flex;
-  align-items: center; /* Center items vertically */
-  justify-content: center; /* Center items horizontally */
-  height: auto; /* Allow height to adjust dynamically */
-  padding: 1rem; /* Reduce padding for smaller screens */
-  margin: 0 auto; /* Center the container */
-  background: rgba(255, 255, 255, 0.9); /* Light background */
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  padding: 2rem;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.9);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-radius: 15px;
   max-width: 80%;
-  gap: 2rem; /* Space between elements */
-  text-align: center; /* Align text to the left */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+  gap: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Add a media query to control flex-wrap behavior */
-@media (max-width: 768px) {
-  .hero-content {
-    flex-wrap: wrap; /* Allow wrapping below 768px */
-  }
+.hero-text {
+  text-align: left;
 }
 
-/* Ensure no wrapping above the specified screen size */
-.hero-content {
-  flex-wrap: nowrap; /* Prevent wrapping by default */
+/* Profile Image Default */
+.profile-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 5px solid var(--secondary-color);
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
-/* Dark mode styles for scrollable containers */
-.dark-mode .content,
-.dark-mode .hero-content {
-  background: rgba(25, 25, 25, 0.9); /* Dark background */
+/* Buttons */
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
 
-/* Optional: Add a scrollbar style for better appearance */
-.content::-webkit-scrollbar,
-.hero-content::-webkit-scrollbar {
-  width: 8px;
+.cta-btn {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.content::-webkit-scrollbar-thumb,
-.hero-content::-webkit-scrollbar-thumb {
-  background: var(--secondary-color); /* Use your secondary color */
-  border-radius: 4px;
-}
+.cta-btn:hover { background-color: #2980b9; }
+.linkedin-btn { background-color: #0077b5; }
+.linkedin-btn:hover { background-color: #005f8e; }
+.fab { font-size: 1.2rem; }
 
-.content::-webkit-scrollbar-thumb:hover,
-.hero-content::-webkit-scrollbar-thumb:hover {
-  background: #2980b9; /* Darker shade on hover */
-}
-
-/* Content Overlay */
-.slide .content {
-  margin-top: 1rem; /* Reduce top margin */
+/* Sub-page Containers */
+.aboutMe-container {
   background: rgba(255, 255, 255, 0.9);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  padding: 1rem; /* Adjust padding for better fit */
+  padding: 2rem;
   border-radius: 15px;
   max-width: 80%;
   margin: 0 auto;
   display: flex;
-  align-items: center; /* Vertically center items */
-  flex-wrap: wrap; /* Allows wrapping */
-  overflow-y: auto; /* Add vertical scroll */
-  gap: 2rem; /* Space between image and text */
-  text-align: left; /* Align text to the left */
-  max-height: 70vh; /* Limit height to avoid excessive spacing */
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+.slide .content {
+  margin-top: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 15px;
+  max-width: 80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  gap: 2rem;
+  text-align: left;
+  max-height: 70vh;
 }
 
 .dark-mode .slide .content,
@@ -440,63 +258,13 @@ body {
   background: rgba(25, 25, 25, 0.9);
 }
 
-/* Profile Image */
-.profile-img {
-  width: 40%;
-  max-width: 200px;
-  height: 40%;
-  max-height: 200px;
-  border-radius: 50%;
-  border: 5px solid var(--secondary-color);
-  margin-bottom: 1.5rem;
-  object-fit: cover;
-}
-
-.hero-buttons {
-  display: flex;
-  flex-wrap: wrap; /* Allows wrapping */
-  justify-content: center; /* Aligns items */
-  gap: 1rem; /* Space between buttons */
-  margin-top: 1.5rem; /* Space above the buttons */
-}
-
-.cta-btn {
-  background-color: var(--secondary-color); /* Use your secondary color */
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 25px; /* Rounded corners */
-  text-decoration: none;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem; /* Space between icon and text */
-}
-
-.cta-btn:hover {
-  background-color: #2980b9; /* Darker shade for hover */
-}
-
-.linkedin-btn {
-  background-color: #0077b5; /* LinkedIn brand color */
-}
-
-.linkedin-btn:hover {
-  background-color: #005f8e; /* Darker shade for hover */
-}
-
-/* Font Awesome icon styling */
-.fab {
-  font-size: 1.2rem;
-}
-
-/* Form Container */
+/* Forms */
 .form-container {
   width: 100%;
-  max-width: 100%; /* Restrict form width for better appearance */
-  margin: 2rem auto; /* Center the form on the page */
+  max-width: 100%;
+  margin: 2rem auto;
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.9); /* Matches light theme */
+  background: rgba(255, 255, 255, 0.9);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-radius: 10px;
@@ -504,11 +272,10 @@ body {
 }
 
 .dark-mode .form-container {
-  background: rgba(25, 25, 25, 0.9); /* Matches dark theme */
+  background: rgba(25, 25, 25, 0.9);
   box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
 }
 
-/* Form Elements */
 .form-container label {
   font-size: 1rem;
   margin-bottom: 0.5rem;
@@ -516,9 +283,7 @@ body {
   display: block;
 }
 
-.dark-mode label {
-  color: var(--text-dark);
-}
+.dark-mode label { color: var(--text-dark); }
 
 .form-container input,
 .form-container textarea,
@@ -531,7 +296,6 @@ body {
   font-size: 1rem;
   background: var(--light-bg);
   color: var(--text-light);
-  box-sizing: border-box;
 }
 
 .dark-mode input,
@@ -542,7 +306,6 @@ body {
   border: 1px solid var(--secondary-color);
 }
 
-/* Submit Button */
 .form-container button {
   background: var(--secondary-color);
   color: white;
@@ -551,30 +314,9 @@ body {
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.form-container button:hover {
-  background: #2980b9; /* Slightly darker hover effect */
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .form-container {
-    padding: 1rem;
-  }
-
-  .form-container input,
-  .form-container textarea,
-  .form-container select {
-    font-size: 0.9rem;
-  }
-
-  .form-container button {
-    font-size: 0.9rem;
-    padding: 0rem 0rem;
-  }
-}
+.form-container button:hover { background: #2980b9; }
 
 .contact-form {
   display: flex;
@@ -609,22 +351,18 @@ body {
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  text-align: center; /* Align button to the right */
 }
 
-.contact-form button:hover {
-  background: #2980b9;
-}
+.contact-form button:hover { background: #2980b9; }
 
-/* Adjust the content-box styles to position it even closer to the nav bar */
+/* Content Box Border Animation */
 .content-box {
-  position: absolute; /* Use absolute positioning */
-  top: var(--nav-height); /* Align directly below the nav bar */
-  left: 50%; /* Center horizontally */
-  transform: translateX(-50%); /* Offset by 50% of its own width */
-  margin: 0; /* Remove any default margins */
-  padding: 0; /* Remove padding */
+  position: absolute;
+  top: var(--nav-height);
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 0;
   background: rgba(255, 255, 255, 0.9);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
@@ -642,23 +380,106 @@ body {
   height: 100%;
   border: 2px solid var(--secondary-color);
   border-radius: 10px;
-  box-sizing: border-box;
   animation: animate-border 3s linear infinite;
 }
 
-/* Ensure parent elements do not add extra spacing */
-body,
-html {
-  margin: 0; /* Remove default margins */
-  padding: 0; /* Remove default padding */
+/* Animations Core */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes animate-border {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(100%, 0); }
+  50% { transform: translate(100%, 100%); }
+  75% { transform: translate(0, 100%); }
+  100% { transform: translate(0, 0); }
 }
 
-/* Add padding to the top of each section to prevent overlap with the nav bar */
-section {
-  padding-top: 5rem; /* Add padding to ensure content doesn't overlap the nav bar */
+/* ========================================== */
+/* INTEGRATED RESPONSIVE DESIGN (MOBILE FIX) */
+/* ========================================== */
+
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+  }
+
+  .nav-menu.active {
+    display: flex !important;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    max-width: 90%;
+    gap: 1rem; /* Closes gap inside hero wrapper */
+  }
+
+  .hero-text {
+    text-align: center;
+    margin-top: 0.25rem;
+  }
+
+  .profile-img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 0.5rem; /* Forces text tight to picture bottom */
+  }
+
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+  
+  .cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .form-container, .contact-form {
+    padding: 1rem;
+    flex-direction: column;
+  }
 }
 
-/* Add specific padding for the About Me section to prevent overlap */
-#about {
-  padding-top: 5rem; /* Ensure enough space below the nav bar */
+@media (max-width: 480px) {
+  section, #about {
+    padding-top: 4.5rem; /* Reduces empty dead space below the navbar */
+  }
+
+  .hero-content {
+    padding: 1rem;
+    gap: 0.5rem; /* Minimises distance between profile picture and title */
+  }
+
+  .profile-img {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 0.25rem;
+  }
+
+  .hero-text h1 {
+    font-size: 1.6rem;
+  }
+  
+  .hero-text p {
+    font-size: 0.95rem;
+  }
 }
