@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sean Davis: Systems Implementation & Onboarding Specialist</title>
     <link rel="stylesheet" href="style.css" />
     <link
@@ -12,9 +12,9 @@
   </head>
   <body>
     <!-- Dark Mode Toggle -->
-    <button id="theme-toggle" class="theme-toggle">
-      <i class="fas fa-moon"></i>
-    </button>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+    <i id="theme-icon" class="fas fa-moon"></i>
+</button>
 
     <!-- Navigation -->
     <nav class="nav">
@@ -50,11 +50,7 @@
                 download
                 >Download CV</a
               >
-              <a
-                href="https://www.linkedin.com/in/seandavisonline/"
-                class="cta-btn primary-btn"
-                target="_blank"
-              >
+             <a href="https://www.linkedin.com/in/seandavisonline/" class="cta-btn secondary-btn" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-linkedin"></i> LinkedIn
               </a>
               <a href="#contact" class="cta-btn primary-btn">Get a Free Data Audit</a>
@@ -132,14 +128,7 @@
            <form id="contact-form" action="https://formspree.io/f/xwplqgpo" method="POST">
   <input type="text" name="name" placeholder="Your Name" required />
   <input type="email" name="email" placeholder="Work Email" required />
-  
-  <select name="project-type" required style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 4px;">
-    <option value="" disabled selected>What is your current data bottleneck?</option>
-    <option value="spreadsheet-migration">Migrating messy spreadsheets to HubSpot</option>
-    <option value="crm-automation">Automating existing CRM workflows</option>
-    <option value="data-cleansing">Data auditing and duplicate removal</option>
-    <option value="agency-partnership">Boutique Agency white-label support</option>
-  </select>
+
   
   <textarea name="message" placeholder="Briefly describe your current setup or messy tracking sheets..." required></textarea>
   <button type="submit" class="cta-btn primary-btn" style="width: 100%;">Submit Audit Request</button>
