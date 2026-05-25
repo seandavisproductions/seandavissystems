@@ -1,16 +1,17 @@
 :root {
     --bg-color: #f8fafc;
+    --secondary-color: #3498db;
     --card-bg: #ffffff;
-    --text-color: #1e293b;
-    --accent-color: #2563eb;
+    --text-color: #333;
+    --accent-color: #3498db;
     --border-color: #e2e8f0;
 }
 
 .dark-mode {
-    --bg-color: #0f172a;
-    --card-bg: #1e293b;
-    --text-color: #f8fafcb2;
-    --accent-color: #3b82f6;
+    --bg-color: #2c3e50;
+    --card-bg: #050506;
+    --text-color: #bdc3c7;
+    --accent-color: #3498db;
     --border-color: #334155;
 }
 
@@ -20,6 +21,7 @@
 .dark-mode .hs-form legend {
     color: #f8fafc;
 }
+
 
 /* Ensure inputs are visible in Dark Mode */
 .dark-mode .hs-input {
@@ -38,22 +40,22 @@
 
 /* Default (Light Mode) Background */
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 18px;
     color: var(--text-color);
-    padding-top: 100px;
     /* Soft, professional light-themed gradient */
-    background: linear-gradient(135deg, #f1f5f9, #e2e8f0, #cbd5e1);
+    background: linear-gradient(-45deg, #f5f7fa, #c3cfe2, #f5f7fa, #c3cfe2);
     background-size: 200% 200%;
-    animation: gradientBG 40s ease infinite;
+    animation: gradientBG 30s ease infinite;
     transition: background 0.8s ease, border-color 0.8s ease, box-shadow 0.8s ease;
 }
 
 /* Dark Mode Background */
 body.dark-mode {
     /* Deep, tech-focused dark-themed gradient */
-    background: linear-gradient(135deg, #0f172a, #1e293b, #0f172a);
+    background: linear-gradient(-45deg, #1a1a1a, #2c3e50, #1a1a1a, #2c3e50);
     background-size: 200% 200%;
-    animation: gradientBG 40s ease infinite;
+    animation: gradientBG 20s ease infinite;
 }
 
 @keyframes gradientBG {
@@ -62,30 +64,23 @@ body.dark-mode {
     100% { background-position: 0% 50%; }
 }
 
-/* Fixed Navigation */
-.nav {
+/* Floating Action Button - Replaces the Nav for CTAs */
+.floating-cta {
     position: fixed;
-    top: 0;
-    width: 100%;
-    background: var(--card-bg);
-    border-bottom: 1px solid var(--border-color);
-    padding: 1rem 0;
+    bottom: 20px;
+    left: 20px;
     z-index: 1000;
-    transition: background 0.5s ease, border-color 0.5s ease;
-}
-
-.nav-menu {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav a {
+    padding: 1rem 2rem;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 50px;
     text-decoration: none;
-    color: var(--text-color);
-    font-weight: 500;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
 }
+
+.floating-cta:hover { transform: scale(1.05); }
 
 /* Vertical Card Layout */
 main {
@@ -94,20 +89,63 @@ main {
     padding: 0 1rem;
 }
 
+/* Container to hold the split */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 3rem; /* Massive breathing room between them */
+    max-width: 1000px;
+    margin: 4rem auto;
+}
+
+/* Make it responsive: Stack on mobile */
+@media (max-width: 768px) {
+    .content-grid { grid-template-columns: 1fr; }
+}
+
+/* Better list formatting */
+.skills-list {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.skills-list li {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.skills-list li span {
+    font-weight: 700;
+    color: var(--secondary-color);
+    display: block; /* Puts label above the detail for more space */
+}
+
+/* Ensure cards don't feel scrunched */
+.card {
+    padding: 3rem; 
+    margin-bottom: 0; /* Let the grid handle the vertical spacing */
+}
+
 .card {
     background: rgba(255, 255, 255, 0.9); 
     -webkit-backdrop-filter: blur(10px); /* Required for Safari */
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 12px;
-    padding: 2.5rem;
-    margin-bottom: 2rem;
+    border-radius: 15px;
+    padding: 4rem;
+    margin-bottom: 4rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background 0.8s ease, border-color 0.8s ease, box-shadow 0.8s ease;
 }
 
+.card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
 .dark-mode .card {
-    background: rgba(0, 0, 0, 0.85); /* Slightly darker for dark mode */
+    background: #191919e6; /* Slightly darker for dark mode */
 }
 
 /* Hero & Image */
@@ -118,8 +156,8 @@ main {
 }
 
 .profile-img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--accent-color);
@@ -128,7 +166,27 @@ main {
 /* Buttons */
 .hero-buttons { display: flex; gap: 1rem; margin-top: 1.5rem; }
 
+.secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem; /* Space between icon and text */
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid #0077b5; /* LinkedIn brand blue */
+    color: #0077b5;
+    transition: all 0.2s ease;
+}
+
+.secondary-btn:hover {
+    background-color: #0077b5;
+    color: #fff;
+}
+
 .cta-btn {
+    display: inline-flex;
+    align-items: center;
     padding: 0.75rem 1.5rem;
     border-radius: 6px;
     font-weight: 600;
@@ -137,34 +195,84 @@ main {
 }
 
 .primary-btn { background: var(--accent-color); color: #fff; }
+.primary-btn:hover {
+  background-color: #1f6391;
+  border-color: #1f6391;
+  transform: translateY(-2px);
+}
 .secondary-btn { border: 1px solid var(--border-color); color: var(--text-color); }
 
-/* Forms */
-select, input, textarea {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    background: var(--bg-color);
-    color: var(--text-color);
-}
+
 
 /* Theme Toggle */
 .theme-toggle {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: var(--accent-color);
-    color: white;
-    border: none;
-    padding: 1rem;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    
+    /* ADD/UPDATE THESE LINES */
+    width: 45px;      /* Set explicit width */
+    height: 45px;     /* Set explicit height */
+    display: flex;    /* Use flex to center the icon */
+    align-items: center;
+    justify-content: center;
+    padding: 0;       /* Remove padding that might cause stretching */
+    
+    /* Existing Styles */
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
     border-radius: 50%;
     cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.floating-whatsapp {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    width: 60px;
+    height: 60px;
+    background: #25d366; /* Official WhatsApp Green */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    transition: transform 0.3s ease;
+    text-decoration: none;
+}
+
+.floating-whatsapp:hover {
+    transform: scale(1.1);
+    background: #128c7e;
 }
 
 /* Responsive */
 @media (max-width: 600px) {
-    .hero-content { flex-direction: column; text-align: center; }
-    .hero-buttons { flex-direction: column; }
+    .hero-content { 
+        flex-direction: column; 
+        text-align: center; 
+    }
+    
+    .hero-buttons { 
+        flex-direction: column; 
+        align-items: center; /* This centers the buttons horizontally */
+        width: 100%;
+    }
+    
+    .cta-btn {
+        width: 100%; /* Makes buttons full-width for easier tapping on mobile */
+        justify-content: center; /* Centers the icon/text inside the button */
+    }
+}
+
+.theme-toggle, .floating-whatsapp {
+    z-index: 9999; /* Ensure this is the highest number on your page */
+    position: fixed;
+    bottom: 20px;
 }

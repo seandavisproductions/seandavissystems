@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="LOGO.png">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sean Davis: Systems Implementation & Onboarding Specialist</title>
@@ -11,44 +12,16 @@
 
 <body>
 
+   <button type="button" id="whatsapp-btn" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</button>
+
     <button type="button" 
         id="theme-toggle" 
         class="theme-toggle" 
         aria-label="Toggle dark mode">
     <i id="theme-icon" class="fas fa-moon"></i>
 </button>
-
-
-<script>
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            
-            // Icon swap logic
-            if (document.body.classList.contains('dark-mode')) {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            } else {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            }
-        });
-        
-        // Add any other page-specific logic here (e.g., form handling)
-    </script>
-
-    <nav class="nav">
-        <div class="nav-container">
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
 
     <main>
         
@@ -69,24 +42,34 @@
                 </div>
             </div>
         </section>
+   <section id="services">
+    <div class="card">
+        <h2>How I Solve Your Systems</h2>
+        <ul class="services-list">
+            <li>
+                <strong>Map & Audit Schema:</strong> I identify bottlenecks, validate database architecture, and map your current data schema.
+            </li>
+            <li>
+                <strong>Build ETL Pipelines:</strong> I architect scalable automated pipelines to clean, transform, and route your data efficiently.
+            </li>
+            <li>
+                <strong>Deliver Optimisation Report:</strong> You receive a comprehensive 3-page report and a system requiring 70% less manual input.
+            </li>
+        </ul>
+    </div>
+</section>
 
-        <section id="about" class="card">
-            <h3>About Me</h3>
-            <p>I am an operations and systems onboarding specialist with a background in data architecture, technical instruction, and Agile methodologies. My core expertise lies in breaking down complex software systems into clear, actionable workflows for cross-functional teams, driving high user adoption during critical digital transitions.</p>
-            <p>I specialise in translating loose, conversational business requirements into structured database logic. By aligning technical capabilities with organizational goals, I help companies eliminate data silos, reduce administrative overhead, and establish scalable, single sources of truth.</p>
-            
-            <h4>Technical Project: Custom CRM Database & Automated ETL Pipeline</h4>
-            <p><strong>Project Overview:</strong> Designed and executed a self-initiated relational data-capture engine to centralize, track, and manage complex operational requests.</p>
-        </section>
-
-        <section id="skills" class="card">
-            <h3>Technical Skills</h3>
-            <div class="skills-grid">
-                <p><strong>Systems Architecture:</strong> Relational Database Design, Workflow Automation, Data Pipeline Configuration.</p>
-                <p><strong>Technical Stack:</strong> HubSpot, Google Workspace Ecosystem, Google Apps Script, Python, Advanced Spreadsheet Modeling.</p>
-                <p><strong>Consulting:</strong> Technical Discovery, Business Process Mapping, User Adoption Strategy.</p>
-            </div>
-        </section>
+        <div class="card">
+            <h2>Technical Stack</h2>
+            <ul class="skills-list">
+                <li><span>Database Architecture:</span> SQL, PostgreSQL, CRM Data Modeling</li>
+                <li><span>Automation:</span> Google Apps Script, Make.com, HubSpot API</li>
+                <li><span>Web/System Tools:</span> HTML5, CSS3, JavaScript, Git</li>
+                <li><span>Strategy:</span> Data Cleaning, ETL Pipelines, Systems Optimisation</li>
+            </ul>
+        </div>
+    </div>
+</section>
 
         <section id="contact" class="card">
             <h3>Let's Connect</h3>
@@ -117,9 +100,48 @@
     });
 </script>
 
+<script>
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            themeIcon.classList.toggle('fa-moon');
+            themeIcon.classList.toggle('fa-sun');
+        });
 
-    <!-- Start of HubSpot Embed Code -->
-<script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/147707001.js"></script>
+        // Active Nav Logic
+        const navLinks = document.querySelectorAll('.nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.forEach(item => item.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // ADD THE FADE-IN SCRIPT HERE
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 }); // Starts animation when 10% of card is visible
+
+        document.querySelectorAll('.card').forEach(card => observer.observe(card));
+    </script>
+<script>
+        document.getElementById('whatsapp-btn').addEventListener('click', function() {
+    // The number is only "assembled" when the user clicks
+    const phone = "+447824412683"; 
+    const msg = "Hi Sean, I'd like to request a data audit.";
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+});
+    </script>
+   
+     <!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="https://js-eu1.hs-scripts.com/147707001.js"></script>
 <!-- End of HubSpot Embed Code -->
 </body>
 </html>
