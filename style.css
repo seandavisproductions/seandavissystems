@@ -271,8 +271,16 @@ main {
     }
 }
 
-.theme-toggle, .floating-whatsapp {
-    z-index: 9999; /* Ensure this is the highest number on your page */
-    position: fixed;
+/* Theme Toggle: Pinned to Top Left */
+.theme-toggle {
+    top: 20px;
+    left: 20px;
+    bottom: auto; /* Remove the bottom constraint */
+}
+
+/* WhatsApp: Pinned to Bottom Left */
+.floating-whatsapp {
     bottom: 20px;
+    left: 20px;
+    top: auto; /* Remove the top constraint */
 }
