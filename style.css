@@ -93,9 +93,9 @@ main {
 .content-grid {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Two equal columns */
-    gap: 3rem; /* Massive breathing room between them */
+    gap: 2rem; /* Massive breathing room between them */
     max-width: 1000px;
-    margin: 4rem auto;
+    margin: 2rem auto;
 }
 
 /* Make it responsive: Stack on mobile */
@@ -121,10 +121,6 @@ main {
 }
 
 /* Ensure cards don't feel scrunched */
-.card {
-    padding: 3rem; 
-    margin-bottom: 0; /* Let the grid handle the vertical spacing */
-}
 
 .card {
     background: rgba(255, 255, 255, 0.9); 
