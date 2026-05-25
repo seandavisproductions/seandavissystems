@@ -11,9 +11,33 @@
 
 <body>
 
-    <button id="theme-toggle" class="theme-toggle">
-        <i class="fas fa-moon"></i>
-    </button>
+    <button type="button" 
+        id="theme-toggle" 
+        class="theme-toggle" 
+        aria-label="Toggle dark mode">
+    <i id="theme-icon" class="fas fa-moon"></i>
+</button>
+
+
+<script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            // Icon swap logic
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        });
+        
+        // Add any other page-specific logic here (e.g., form handling)
+    </script>
 
     <nav class="nav">
         <div class="nav-container">
@@ -37,7 +61,7 @@
                     <p>Architecting Data Workflows | Driving CRM & Software User Adoption</p>
                     
                     <div class="hero-buttons">
-                        <a href="https://www.linkedin.com/in/seandavisonline/" class="cta-btn secondary-btn" target="_blank">
+                        <a href="https://www.linkedin.com/in/seandavisonline/" class="cta-btn secondary-btn" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-linkedin"></i> LinkedIn
                         </a>
                         <a href="#contact" class="cta-btn primary-btn">Get a Free Data Audit</a>
@@ -92,12 +116,7 @@
         }
     });
 </script>
-    <script>
-        const themeToggle = document.getElementById('theme-toggle');
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-        });
-    </script>
+
 
     <!-- Start of HubSpot Embed Code -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/147707001.js"></script>
