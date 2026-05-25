@@ -58,7 +58,7 @@
                 <i class="fab fa-linkedin"></i> LinkedIn
               </a>
               <a href="#contact" class="cta-btn primary-btn">Get a Free Data Audit</a>
-                Order on Fiverr
+      
               </a>
             </div>
           </div>
@@ -132,12 +132,21 @@
       <section id="contact" class="slide">
         <div class="content">
           <h3>Let's Connect</h3>
-            <form class="contact-form" action="https://formspree.io/f/xwplqgpo" method="POST" target="_blank" >
-            <input type="text" name="name" placeholder="Name" required />
-            <input type="email" name="email" placeholder="Email" required />
-            <textarea name="message" placeholder="Message" rows="5" required></textarea>
-            <button type="submit" class="cta-btn">Send Message</button>
-          </form>
+           <form id="contact-form" action="your-form-handler-url" method="POST">
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="email" name="email" placeholder="Work Email" required />
+  
+  <select name="project-type" required style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 4px;">
+    <option value="" disabled selected>What is your current data bottleneck?</option>
+    <option value="spreadsheet-migration">Migrating messy spreadsheets to HubSpot</option>
+    <option value="crm-automation">Automating existing CRM workflows</option>
+    <option value="data-cleansing">Data auditing and duplicate removal</option>
+    <option value="agency-partnership">Boutique Agency white-label support</option>
+  </select>
+  
+  <textarea name="message" placeholder="Briefly describe your current setup or messy tracking sheets..." required></textarea>
+  <button type="submit" class="cta-btn primary-btn" style="width: 100%;">Submit Audit Request</button>
+</form>
       
             </a>
           </div>
