@@ -132,9 +132,22 @@ html, body {
     overflow-x: hidden;
 }
 
-/* Centers the card specifically for the video */
+/* Centers the card and prevents overflow */
 .video-card {
     margin: 2rem auto;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box; /* Forces padding to stay INSIDE the width */
+    padding: 1.5rem; /* Tighter default padding so the video isn't squashed */
+}
+
+/* Mobile-Specific Override */
+@media (max-width: 768px) {
+    .video-card {
+        padding: 0.5rem; /* Strips almost all padding on phones for max video size */
+        margin: 1rem auto;
+        border-radius: 10px;
+    }
 }
 
 /* Forces the responsive 16:9 aspect ratio */
