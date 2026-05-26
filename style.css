@@ -41,12 +41,16 @@
 /* Default (Light Mode) Background */
 body {
     font-family: 'Segoe UI', sans-serif;
-    font-size: 18px;
+    /* Increase baseline size and ensure line-height is comfortable */
+    font-size: 1.4rem; /* This is 18px */
+    line-height: 1.6;
+    align-content: center;
+    overflow-x: hidden; /* This PREVENTS the horizontal scroll/pinch issue */
     color: var(--text-color);
     /* Soft, professional light-themed gradient */
     background: linear-gradient(-45deg, #f5f7fa, #c3cfe2, #f5f7fa, #c3cfe2);
     background-size: 200% 200%;
-    animation: gradientBG 30s ease infinite;
+    animation: gradientBG 20s ease infinite;
     transition: background 0.8s ease, border-color 0.8s ease, box-shadow 0.8s ease;
 }
 
@@ -84,18 +88,18 @@ body.dark-mode {
 
 /* Vertical Card Layout */
 main {
-    max-width: 800px;
-    margin: 2rem auto;
+    max-width: 1000px; /* Constrain the whole page width */
+    margin: 2rem auto; /* Centers the whole page */
     padding: 0 1rem;
 }
 
 /* Container to hold the split */
 .content-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two equal columns */
-    gap: 2rem; /* Massive breathing room between them */
-    max-width: 1000px;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
     margin: 2rem auto;
+    width: 100%; /* Ensures it fills the 'main' container */
 }
 
 /* Make it responsive: Stack on mobile */
@@ -122,23 +126,26 @@ main {
 
 /* Ensure cards don't feel scrunched */
 
-.card {
-    background: rgba(255, 255, 255, 0.9); 
-    -webkit-backdrop-filter: blur(10px); /* Required for Safari */
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 15px;
-    padding: 4rem;
-    margin-bottom: 4rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background 0.8s ease, border-color 0.8s ease, box-shadow 0.8s ease;
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 2.5rem; /* Tighter padding for desktop */
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.6s ease-out;
+    width: 100%; /* Important: Cards fill the grid cell, not push it */
 }
+
 
 .dark-mode .card {
     background: #191919e6; /* Slightly darker for dark mode */
@@ -147,7 +154,8 @@ main {
 /* Hero & Image */
 .hero-content {
     display: flex;
-    align-items: center;
+    align-items: center; /* Centers image and text vertically */
+    justify-content: center;
     gap: 2rem;
 }
 
@@ -253,8 +261,18 @@ main {
     .hero-content { 
         flex-direction: column; 
         text-align: center; 
+        max-width: 100%;
     }
     
+  .card, .content-grid, main {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}  
     .hero-buttons { 
         flex-direction: column; 
         align-items: center; /* This centers the buttons horizontally */
