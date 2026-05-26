@@ -88,7 +88,7 @@ body.dark-mode {
 
 /* Vertical Card Layout */
 main {
-    max-width: 1000px; /* Constrain the whole page width */
+    max-width: 80%; /* Constrain the whole page width */
     margin: 2rem auto; /* Centers the whole page */
     padding: 0 1rem;
 }
